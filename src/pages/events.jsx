@@ -42,13 +42,14 @@ function Events({ onBack }) {
     <div className="feature-page">
 
       {/* Back */}
-      <button
-        className="feature-back"
-        onClick={onBack}
-      >
-        ← Back to Dashboard
-      </button>
-
+<button
+  className="feature-back"
+  onClick={onBack}
+  title="←"
+  aria-label="←"
+>
+  ←
+</button>
       {/* Header */}
       <div className="feature-header">
 
@@ -129,3 +130,7 @@ function Events({ onBack }) {
 }
 
 export default Events;
+
+
+
+

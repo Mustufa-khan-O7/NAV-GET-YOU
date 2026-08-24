@@ -1,72 +1,112 @@
 import logo from "../assets/logo.png";
-
-function Dashboard({ onLogout, onNavigation, onChatbot, onTimetable, onEvents, onComplaint, onTransport, onProfile }) {
+import { useState } from "react";
+function Dashboard({ onLogout, onNavigation, onChatbot, onTimetable, onEvents, onComplaint, onTransport, onProfile ,onNotifications
+ }) {
+const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="dashboard-page">
 
-      {/* Sidebar */}
-      <aside className="sidebar">
 
-        <div className="sidebar-logo">
-          <img src={logo} alt="NAV GET YOU" />
-        </div>
+{/* Mobile Header / Logo */}
 
-        <nav className="sidebar-nav">
-
-          <button className="sidebar-item active">
-            🏠
-            <span>Dashboard</span>
-          </button>
+<div className="mobile-header">
+  <img
+    src={logo}
+    alt="NAV GET YOU"
+    onClick={() => setSidebarOpen(!sidebarOpen)}
+  />
+</div>
 
 
+{/* Sidebar */}
 
-<button
- className="sidebar-item"
-onClick={onNavigation}>
-  🧭
-  <span>Smart Navigation</span>
-</button>
+<aside
+  className={`sidebar ${
+    sidebarOpen ? "mobile-sidebar-open" : ""
+  }`}
+>
 
-        <button
-       className="sidebar-item"        
-        onClick={onChatbot}>
-  🤖
-  <span>AI Chatbot</span>
-</button>
+  {/* Sidebar Logo */}
 
-   <button 
-    className="sidebar-item"   
-   onClick={onTimetable}>
-  📅
-  <span>Timetable</span>
-</button>
+  <div
+    className="sidebar-logo"
+    onClick={() => setSidebarOpen(!sidebarOpen)}
+  >
+    <img
+      src={logo}
+      alt="NAV GET YOU"
+    />
+  </div>
 
-   <button
-    className="sidebar-item"
-     onClick={onEvents}>
-    🎉
-    <span>Events</span>
-</button>
 
-    <button className="sidebar-item"
-    onClick={onComplaint}>
-     📝
-    <span>Complaint Portal</span>
-</button>
+  {/* Sidebar Menu */}
 
-    <button className="sidebar-item"
-    onClick={onTransport}>
-            🚌
-    <span>Transport</span>
+  <nav className="sidebar-nav">
+
+    <button className="sidebar-item active">
+      <span>🏠</span>
+      <span>Dashboard</span>
     </button>
 
-    <button className="sidebar-item"
-     onClick={onProfile}>
-            👤
+    <button
+      className="sidebar-item"
+      onClick={onNavigation}
+    >
+      <span>🧭</span>
+      <span>Navigation</span>
+    </button>
+
+    <button
+      className="sidebar-item"
+      onClick={onTimetable}
+    >
+      <span>📅</span>
+      <span>Timetable</span>
+    </button>
+
+    <button
+      className="sidebar-item"
+      onClick={onEvents}
+    >
+      <span>🎉</span>
+      <span>Events</span>
+    </button>
+
+    <button
+      className="sidebar-item"
+      onClick={onComplaint}
+    >
+      <span>📝</span>
+      <span>Complaint</span>
+    </button>
+
+    <button
+      className="sidebar-item"
+      onClick={onTransport}
+    >
+      <span>🚌</span>
+      <span>Transport</span>
+    </button>
+
+    <button
+      className="sidebar-item"
+      onClick={onProfile}
+    >
+      <span>👤</span>
       <span>Profile</span>
     </button>
 
-        </nav>
+    <button
+      className="sidebar-item"
+      onClick={onNotifications}
+    >
+      <span>🔔</span>
+      <span>Notifications</span>
+    </button>
+
+  </nav>
+
+
 
         <button
           className="logout-btn"

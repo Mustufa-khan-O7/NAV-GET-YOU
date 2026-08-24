@@ -3,7 +3,7 @@ function Navigation({ onBack }) {
     <div className="feature-page">
 
       <button className="feature-back" onClick={onBack}>
-        ← Back to Dashboard
+        ← 
       </button>
 
       <div className="feature-header">

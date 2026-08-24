@@ -18,7 +18,7 @@ function Profile({ onBack }) {
         className="feature-back"
         onClick={onBack}
       >
-        ← Back to Dashboard
+        ← 
       </button>
 
       {/* Header */}
