@@ -1,4 +1,12 @@
 import "./App.css";
+import AdminNotifications from "./pages/admin-notifications.jsx";
+import AdminTransport from "./pages/admin-transport.jsx";
+import AdminComplaint from "./pages/admin-complaint";
+import AdminTimetable from "./pages/admin-timetable.jsx";
+import AdminEvents from "./pages/admin-events.jsx";
+import AdminStudent from "./pages/admin-student.jsx";
+import AdminDashboard from "./pages/admin-dashboard.jsx";
+import AdminLogin from "./pages/admin-login.jsx";
 import Profile from "./pages/profile.jsx";
 import Transport from "./pages/transport.jsx";
 import Complaint from "./pages/complaint.jsx";
@@ -15,7 +23,7 @@ import logo from "./assets/logo.png";
 
 
 
-function Landing({ onLogin, onRegister }) {
+function Landing({ onLogin, onRegister, onAdmin }) {
   return (
     <div className="app">
 
@@ -41,6 +49,14 @@ function Landing({ onLogin, onRegister }) {
           >
             Login
           </button>
+                         <button
+  className="admin-nav-btn"
+  onClick={onAdmin}
+>
+  🔐 Admin
+</button>
+
+
 
          <button
   className="start-btn"
@@ -298,6 +314,94 @@ if (page === "profile") {
   );
 }
 
+if (page === "admin-login") {
+  return (
+    <AdminLogin
+      onLogin={() => setPage("admin-dashboard")}
+      onBack={() => setPage("landing")}
+    />
+  );
+}
+
+if (page === "admin-students") {
+  return (
+    <AdminStudent
+      onBack={() => setPage("admin-dashboard")}
+    />
+  );
+}
+
+if (page === "admin-timetable") {
+  return (
+    <AdminTimetable
+      onBack={() => setPage("admin-dashboard")}
+    />
+  );
+}
+
+if (page === "admin-events") {
+  return (
+    <AdminEvents
+      onBack={() => setPage("admin-dashboard")}
+    />
+  );
+}
+
+if (page === "complaint") {
+  return (
+    <Complaint
+      onBack={() => setPage("dashboard")}
+    />
+  );
+}
+
+if (page === "admin-complaints") {
+  return (
+    <AdminComplaint
+      onBack={() => setPage("admin-dashboard")}
+    />
+  );
+}
+
+if (page === "admin-transport") {
+  return (
+    <AdminTransport
+      onBack={() => setPage("admin-dashboard")}
+    />
+  );
+}
+
+if (page === "admin-notifications") {
+  return (
+    <AdminNotifications
+      onBack={() => setPage("admin-dashboard")}
+    />
+  );
+}
+
+
+if (page === "admin-dashboard") {
+  return (
+    <AdminDashboard
+      onStudents={() => setPage("admin-students")}
+      onTimetable={() => setPage("admin-timetable")}
+      onEvents={() => setPage("admin-events")}
+      onComplaints={() => setPage("admin-complaints")}
+      onTransport={() => setPage("admin-transport")}
+      onNotifications={() => setPage("admin-notifications")}
+      onLogout={() => setPage("admin-login")}
+      onBack={() => setPage("dashboard")} 
+    />
+  );
+}
+
+
+
+const openAdminDashboard = () => {
+  setPage("admin-dashboard");
+};
+
+
 
 if (page === "dashboard") {
   return (
@@ -307,17 +411,20 @@ if (page === "dashboard") {
       onChatbot={() => setPage("chatbot")}
       onTimetable={() => setPage("timetable")}
       onEvents={() => setPage("events")}
-      onComplaint={() => setPage("complaint")}
+      onComplaints={() => setPage("complaints")}
       onTransport={() => setPage("transport")}
       onProfile={() => setPage("profile")}
+      onClick={() => setPage("admin-students")}
     />
   );
 }
+
 
   return (
     <Landing
       onLogin={() => setPage("login")}
       onRegister={() => setPage("register")}
+      onAdmin={() => setPage("admin-login")}
     />
   );
 }
