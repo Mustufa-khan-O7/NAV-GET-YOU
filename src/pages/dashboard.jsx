@@ -72,6 +72,7 @@ const [sidebarOpen, setSidebarOpen] = useState(false);
       <span>Events</span>
     </button>
 
+
     <button
       className="sidebar-item"
       onClick={onComplaint}

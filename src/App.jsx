@@ -347,13 +347,13 @@ if (page === "admin-events") {
   );
 }
 
-if (page === "complaint") {
+{/*if (page === "complaint") {
   return (
     <Complaint
       onBack={() => setPage("dashboard")}
     />
   );
-}
+}*/}
 
 if (page === "admin-complaints") {
   return (
@@ -386,6 +386,7 @@ if (page === "admin-dashboard") {
       onStudents={() => setPage("admin-students")}
       onTimetable={() => setPage("admin-timetable")}
       onEvents={() => setPage("admin-events")}
+      onComplaint={() => setPage("admin-complaints")}
       onComplaints={() => setPage("admin-complaints")}
       onTransport={() => setPage("admin-transport")}
       onNotifications={() => setPage("admin-notifications")}
@@ -411,7 +412,7 @@ if (page === "dashboard") {
       onChatbot={() => setPage("chatbot")}
       onTimetable={() => setPage("timetable")}
       onEvents={() => setPage("events")}
-      onComplaints={() => setPage("complaints")}
+    onComplaint={() => setPage("complaint")}
       onTransport={() => setPage("transport")}
       onProfile={() => setPage("profile")}
       onClick={() => setPage("admin-students")}
